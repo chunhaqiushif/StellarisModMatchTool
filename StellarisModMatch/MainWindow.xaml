@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StellarisModMatch"
         mc:Ignorable="d"
-        Title="群星Stellaris Mod匹配工具 - Ver 0.1.6"
+        Title="群星Stellaris Mod匹配工具 - Ver 0.1.7"
         ResizeMode="CanMinimize" Loaded="LoadModData" Width="1280" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="800" MinHeight="600" Visibility="Visible" Icon="Resources/exe_icon_bigsize.bmp" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="contentCenterStyle" TargetType="{x:Type TextBlock}">
