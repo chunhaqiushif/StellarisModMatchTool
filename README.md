@@ -1,6 +1,7 @@
 # StellarisModMatch
 ## 群星mod匹配工具 v0.1.6
----
+
+![](img/截图.jpg)
 
 能够加载并检查群星stellaris的mod情况生成列表，在界面选择想要启用的mod或将mod列表生成文件保存，适用于玩家参加不同成员不同mod的联机情况。
 
@@ -20,18 +21,23 @@ M：emmmmm那下次再玩吧。=|
 糕：好的好的！:P  
 T：....
 
----
-初版大概仅写了5天时间（利用摸鱼时间...）  
-快写完的时候发现这类工具其实是有的（强调：但是界面真的好丑！）  
-肝掉了bug和功能上的缺失之后发布（2018/10/08）  
-如果发现任何bug想要提交/背刺本人/检举摸鱼，请将情况和截图发送至：chunhaqiushif@hotmail.com  
 
-兴趣驱动开发。后续更新得看问题的严重性和时间情况...  
-最后祝时之虫爱着各位！xD
+初版大概仅写了5天时间（利用摸鱼时间...），当然只是为了实现功能编码水平从各种意义上也很摸。  
+快写完的时候发现这类工具其实是有的（强调：但是界面真的好丑！）  
+于是在给朋友（上面的M和糕2333）测试过后肝掉了bug和功能上的缺失。   
+如果想要 **提交bug** / **背刺本人** / **检举摸鱼** ，请将情况和截图发送至：chunhaqiushif@hotmail.com  
+
+兴趣驱动，后续更新得看各位反馈给我的信息、问题的严重性和时间情况...  
+最后祝~~菌菇粑粑~~时之虫爱着各位！xD
+
+![](StellarisModMatch/Resources/logo-click.png)
+
+下载链接：https://github.com/chunhaqiushif/StellarisModMatchTool/blob/master/StellarisModMatch/bin/Debug/StellarisModMatchTool.exe
 
 ---
 ## 更新日志
----
+
 1. 2018/10/8  
 Beta版本 v0.1.6 发布
+
 ---
