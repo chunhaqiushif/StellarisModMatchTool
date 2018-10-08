@@ -103,8 +103,17 @@ namespace StellarisModMatch
         private void SelectedAll_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox chk1 = (CheckBox)sender;
+            List<ModData> intersectedList = new List<ModData>();
             //List<ModData> m_moddata = ModDataView.ItemsSource as List<ModData>;
-            var intersectedList = dc.ModDataList.ToList().Intersect<ModData>(findResult).ToList();
+            if (findResult.Count == 0)
+            {
+                intersectedList = dc.ModDataList.ToList();
+            }
+            else
+            {
+                intersectedList = dc.ModDataList.ToList().Intersect<ModData>(findResult).ToList();
+            }
+
             intersectedList.ForEach(p => p.IsSelected = chk1.IsChecked.Value);
             LoadOrRefleshModList();
         }
@@ -165,7 +174,7 @@ namespace StellarisModMatch
                     dc.ModDataList.Add(m_data);
                 }
 
-                int textCount = dc.ModDataList.Count;
+                //int textCount = dc.ModDataList.Count;
 
                 //IEnumerable<ModData> tempSum = ModDataList;
                 ICollectionView view = CollectionViewSource.GetDefaultView(dc.ModDataList);
@@ -719,12 +728,13 @@ namespace StellarisModMatch
                     findResult.Add(m_modData);
                 }
             }
-            SortDescription sd = new SortDescription("Name", ListSortDirection.Ascending);
-            view.SortDescriptions.Add(sd);
+
             lock (this)
             {
                 this.Dispatcher.Invoke(new Action(delegate
                 {
+                    SortDescription sd = new SortDescription("Name", ListSortDirection.Ascending);
+                    view.SortDescriptions.Add(sd);
                     ModDataView.ItemsSource = null;
                     ModDataView.ItemsSource = view;
                     view.SortDescriptions.Clear();
