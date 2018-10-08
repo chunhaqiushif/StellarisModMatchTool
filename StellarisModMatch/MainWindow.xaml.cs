@@ -587,6 +587,7 @@ namespace StellarisModMatch
             else
             {
                 //MessageBox.Show("没有选择图片");
+                return;
             }
 
             int index = 0;
