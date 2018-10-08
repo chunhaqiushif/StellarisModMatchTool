@@ -1,6 +1,7 @@
 C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\bin\Debug\StellarisModMatchTool.exe.config
 C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\bin\Debug\StellarisModMatchTool.exe
 C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\bin\Debug\StellarisModMatchTool.pdb
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Debug\StellarisModMatch.csprojAssemblyReference.cache
 C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Debug\MainWindow.g.cs
 C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Debug\App.g.cs
 C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Debug\StellarisModMatchTool_MarkupCompile.cache
