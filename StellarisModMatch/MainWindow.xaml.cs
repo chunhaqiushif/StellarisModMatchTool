@@ -653,6 +653,22 @@ namespace StellarisModMatch
         //刷新列表 按钮事件
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
+            var temp = dc.ModDataList.ToList();
+            foreach (var item in temp)
+            {
+                if (item.IsEnable != item.IsSelected)
+                {
+                    item.IsSelected = item.IsEnable;
+                }
+            }
+            //ICollectionView view = CollectionViewSource.GetDefaultView(dc.ModDataList);
+
+            //ModDataView.ItemsSource = null;
+            //SortDescription sd = new SortDescription("Name", ListSortDirection.Ascending);
+            //view.SortDescriptions.Add(sd);
+            //ModDataView.ItemsSource = view;
+            //view.SortDescriptions.Clear();
+
             LoadOrRefleshModList();
         }
 

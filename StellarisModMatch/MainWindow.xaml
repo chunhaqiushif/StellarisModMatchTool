@@ -69,12 +69,12 @@
                 </DataGridHyperlinkColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="EnableModButton" Content="应用当前启用Mod" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click">
+        <Button x:Name="EnableModButton" Content="启用当前选择Mod" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click">
             <Button.Effect>
                 <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="SaveModButton" Content="保存当前启用的Mod" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click_1">
+        <Button x:Name="SaveModButton" Content="保存当前选择Mod列表" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click_1">
             <Button.Effect>
                 <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
             </Button.Effect>
@@ -84,7 +84,7 @@
                 <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="RefleshModListButton" Content="刷新本机Mod列表" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click_3">
+        <Button x:Name="RefleshModListButton" Content="恢复已启用Mod的选择" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click_3">
             <Button.Effect>
                 <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
             </Button.Effect>
