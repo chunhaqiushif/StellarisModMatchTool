@@ -1,0 +1,14 @@
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\bin\Release\StellarisModMatch.exe.config
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\bin\Release\StellarisModMatch.exe
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\bin\Release\StellarisModMatch.pdb
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\MainWindow.g.cs
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\App.g.cs
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\StellarisModMatch_MarkupCompile.cache
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\StellarisModMatch_MarkupCompile.lref
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\MainWindow.baml
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\StellarisModMatch.g.resources
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\StellarisModMatch.Properties.Resources.resources
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\StellarisModMatch.csproj.GenerateResource.cache
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\StellarisModMatch.csproj.CoreCompileInputs.cache
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\StellarisModMatch.exe
+C:\Users\Wei\source\repos\StellarisModMatch\StellarisModMatch\obj\Release\StellarisModMatch.pdb

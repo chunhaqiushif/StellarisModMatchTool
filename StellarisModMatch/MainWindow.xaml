@@ -1,0 +1,138 @@
+﻿<Window x:Class="StellarisModMatch.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StellarisModMatch"
+        mc:Ignorable="d"
+        Title="群星Stellaris Mod匹配工具 - Ver 0.1.6"
+        ResizeMode="CanMinimize" Loaded="LoadModData" Width="1280" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="800" MinHeight="600" Visibility="Visible" Icon="Resources/exe_icon_bigsize.bmp" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="contentCenterStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment"  Value="Center" />
+        </Style>
+        
+    </Window.Resources>
+    <Grid Height="572">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="173*"/>
+            <ColumnDefinition Width="1100*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="ModDataView" ItemsSource="{Binding ModDataList}" IsReadOnly="True" FrozenColumnCount="1" AutomationProperties.IsColumnHeader="True" AutoGenerateColumns="False" RenderTransformOrigin="0.571,0.6" HorizontalScrollBarVisibility="Hidden" Grid.Column="1" Margin="0,10,10,20" SelectionMode="Single" FontFamily="Microsoft YaHei" >
+            <DataGrid.RowStyle >
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="White"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Setter Property="Foreground" Value="Red"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.HeaderTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="checkAllItem" Click="SelectedAll_Checked" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.HeaderTemplate>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox x:Name="itemCheck" IsChecked="{Binding IsSelected, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Click="SelectedItem_Checked" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+
+                <DataGridTextColumn Binding="{Binding Id}" Header="ID"/>
+                <DataGridTextColumn Binding="{Binding Name}" Header="名称" Width=".5*" />
+                <DataGridTextColumn Binding="{Binding Type}" Header="Mod类型" />
+                <DataGridTextColumn Binding="{Binding Version}" Header="对应版本" ElementStyle="{StaticResource contentCenterStyle}"/>
+                <DataGridTextColumn Binding="{Binding _IsExist}" Header="本机存在"  ElementStyle="{StaticResource contentCenterStyle}"/>
+                <DataGridTextColumn Binding="{Binding _IsEnable, Mode=TwoWay}" Header="当前状态" ElementStyle="{StaticResource contentCenterStyle}"/>
+                <DataGridHyperlinkColumn Binding="{Binding Http}"  ContentBinding ="{Binding LinkName}"  Header="社区地址" >
+                    <DataGridHyperlinkColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <EventSetter Event="Hyperlink.Click" Handler="CheckTheLink"/>
+                            <Setter Property="HorizontalAlignment" Value="Center" />
+                        </Style>
+                    </DataGridHyperlinkColumn.ElementStyle>
+                </DataGridHyperlinkColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="EnableModButton" Content="应用当前启用Mod" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click">
+            <Button.Effect>
+                <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="SaveModButton" Content="保存当前启用的Mod" HorizontalAlignment="Left" Margin="10,73,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click_1">
+            <Button.Effect>
+                <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="LoadModButton" Content="加载Mod列表" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click_2">
+            <Button.Effect>
+                <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="RefleshModListButton" Content="刷新本机Mod列表" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="153" Height="30" Click="Button_Click_3">
+            <Button.Effect>
+                <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
+            </Button.Effect>
+        </Button>
+        <UserControl x:Name="PressStart" MouseLeftButtonDown="UserControl_MouseLeftButtonDown">
+
+            <Image x:Name="Logo"  Height="153" Margin="10,0,10,20" Width="153" VerticalAlignment="Bottom">
+                <Image.Style>
+                    <Style TargetType="{x:Type Image}">
+                        <Setter Property="Source" Value="Resources\logo-normal.png"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Source" Value="Resources\logo-mouseover.png"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                <Image.Effect>
+                    <DropShadowEffect Direction="0" Opacity="0.8" ShadowDepth="0" BlurRadius="10"/>
+                </Image.Effect>
+            </Image>
+        </UserControl>
+
+        <TextBox Name="InputText" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  VerticalContentAlignment="Center" Width="153" TextChanged="TextBox_TextChanged">
+            
+            <TextBox.Resources>
+                <VisualBrush x:Key="HelpBrush" TileMode="None" Opacity="0.3" Stretch="None" AlignmentX="Center">
+                    <VisualBrush.Visual>
+                        <TextBlock Text="根据Mod名查找"/>
+                    </VisualBrush.Visual>
+                </VisualBrush>
+            </TextBox.Resources>
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource HelpBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+            <TextBox.Effect>
+                <DropShadowEffect Direction="0" ShadowDepth="0" Opacity="0.45"/>
+            </TextBox.Effect>
+        </TextBox>
+    </Grid>
+
+</Window>
