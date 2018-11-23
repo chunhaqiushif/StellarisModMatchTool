@@ -279,6 +279,7 @@ namespace StellarisModMatch
         static List<string> modEnableList = new List<string>();
         private List<string> GetModEnableTextList(string filePath)
         {
+
             List<string> idList = new List<string>();
             string strData = "";
             try
@@ -455,7 +456,23 @@ namespace StellarisModMatch
         //应用mod按钮 点击事件
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // 首先为dc isselected==true项的isenable=true
+            int index = 0;
+            foreach (var m_modData in dc.ModDataList)
+            {
+                dc.ModDataList[index].IsEnable = false;
+                if (m_modData.IsSelected == true)
+                {
+                    dc.ModDataList[index].IsEnable = true;
+                }
+                index++;
+            }
+            LoadOrRefleshModList();
+
+            // 删除文件中已经存在的“last_mod{###}”文本
             DelectedLastMods();
+
+            // 将选中写入文本
             CheckBoxSelectedWrite2File(modEnableFilePath, false);
             MessageBoxButton button = MessageBoxButton.OK;
             string caption = "群星Stellaris Mod匹配工具";
@@ -480,6 +497,7 @@ namespace StellarisModMatch
                 }
             }
             text = Regex.Replace(text, @"last_mods={\n(\t(.+)\n)+}", "");
+            text = Regex.Replace(text, @"last_mods={\n}", "");
             using (FileStream fs = new FileStream(modEnableFilePath, FileMode.Create, FileAccess.Write))
             {
                 using (StreamWriter sw = new StreamWriter(fs))
@@ -551,12 +569,12 @@ namespace StellarisModMatch
                     {
                         if (m_modData.IsSelected)
                         {
-                            dc.ModDataList[index].IsEnable = true;
+                            //dc.ModDataList[index].IsEnable = true;
                             sw.WriteLine("\t" + outputStr1 + m_modData.Id.ToString() + outputStr2);
                         }
                         else
                         {
-                            dc.ModDataList[index].IsEnable = false;
+                            //dc.ModDataList[index].IsEnable = false;
                         }
                         index++;
                     }
@@ -598,23 +616,32 @@ namespace StellarisModMatch
                 {
                     if (m_modData.Id == newModListFromOpenFile[i])
                     {
-                        dc.ModDataList[i].IsSelected = true;
+                        dc.ModDataList[index].IsSelected = true;
                         flag = true;
                         newModListFromOpenFile.RemoveAt(i);
                         break;
                     }
                 }
+
                 if (flag)
                 {
                     flag = false;
+                    index++;
                     continue;
                 }
-                dc.ModDataList[index].IsSelected = false;
-                index++;
+                if (index < dc.ModDataList.Count)
+                {
+                    dc.ModDataList[index].IsSelected = false;
+                    index++;
+                }
             }
 
             if (newModListFromOpenFile.Count != 0)
             {
+                MessageBoxButton button = MessageBoxButton.OK;
+                string caption = "群星Stellaris Mod匹配工具";
+                MessageBox.Show("当前存在未订阅并下载的Mod，将显示在列表最后（标签为\"[new]\"）。\n在线获取这些未下载的Mod的名称，需要Steamcommunity_302最新版本或科学上网。\n列表右侧的链接指向steam订阅，请订阅等待下载完毕后重启软件。\n注：在下个版本会根据需要添加刷新按钮。", caption, button);
+
                 AddUnDownloadModDelegate deleAdd = new AddUnDownloadModDelegate(AddUnDownloadMod);
                 foreach (var idStr in newModListFromOpenFile)
                 {

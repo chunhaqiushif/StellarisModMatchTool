@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StellarisModMatch"
         mc:Ignorable="d"
-        Title="群星Stellaris Mod匹配工具 - Ver 0.1.7"
+        Title="群星Stellaris Mod匹配工具 - Ver 0.1.8"
         ResizeMode="CanMinimize" Loaded="LoadModData" Width="1280" Height="600" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="800" MinHeight="600" Visibility="Visible" Icon="Resources/exe_icon_bigsize.bmp" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="contentCenterStyle" TargetType="{x:Type TextBlock}">
@@ -89,7 +89,7 @@
                 <DropShadowEffect Direction="0" Opacity="0.45" ShadowDepth="0"/>
             </Button.Effect>
         </Button>
-        <UserControl x:Name="PressStart" MouseLeftButtonDown="UserControl_MouseLeftButtonDown">
+        <UserControl x:Name="PressStart" MouseLeftButtonDown="UserControl_MouseLeftButtonDown" >
 
             <Image x:Name="Logo"  Height="153" Margin="10,0,10,20" Width="153" VerticalAlignment="Bottom">
                 <Image.Style>
